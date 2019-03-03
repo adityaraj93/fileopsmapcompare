@@ -1,0 +1,10 @@
+{
+    "c-cpp-flylint.cppcheck.enable": false,
+    "c-cpp-flylint.clang.pedantic": true,
+    "c-cpp-flylint.clang.pedanticErrors": true,
+    "c-cpp-flylint.clang.noRtti": true,
+    "c-cpp-flylint.clang.noExceptions": true,
+    "c-cpp-flylint.clang.msExtensions": true,
+    "c-cpp-flylint.clang.includePaths": ["include"],
+    "c-cpp-flylint.flexelint.enable": false
+}
