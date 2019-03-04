@@ -1,6 +1,8 @@
 #ifndef __FILEOP_H__
 #define __FILEOP_H__
 
-int use_fileops(const char *srcfile, const char *dstfile);
+int fileop_open(const char *filename, long size, bool src);
+int fileop_copy(int srcfd, int dstfd, long size);
+int fileop_close(int fd);
 
 #endif /* __FILEOP_H__ */

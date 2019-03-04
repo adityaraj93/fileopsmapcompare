@@ -1,5 +1,5 @@
 CC		:= gcc
-C_FLAGS := -Wall -Wextra -Werror
+C_FLAGS := -O2 -Wall -Wextra -Werror
 
 BIN		:= bin
 SRC		:= src
@@ -11,7 +11,7 @@ LIBRARIES	:=
 ifeq ($(OS),Windows_NT)
 EXECUTABLE	:= main.exe
 else
-EXECUTABLE	:= main
+EXECUTABLE	:= compare
 endif
 
 all: $(BIN)/$(EXECUTABLE)

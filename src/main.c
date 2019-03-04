@@ -5,7 +5,7 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 
-#include "fileop.h"
+#include "manager.h"
 
 
 /* Take two files, FILE1 & FILE2, copy from from FILE1 to FILE2.
@@ -21,27 +21,27 @@ static void usage(const char *progname) {
 }
 
 int main(int argc, char *argv[]) {
-	
+	enum op_mode opmode;
+
 	if (argc != 4) {
 		usage(argv[0]);
 		exit(EXIT_FAILURE);
 	}
 
 	if (strcmp(argv[1], "map") == 0) {
-		printf("Using mmap.\n");
-		if (use_mmap(argv[2], argv[3]) != 0)
-			exit(EXIT_FAILURE);
+		opmode = OP_MD_MMAP;
 	}
-	else if(strcmp(argv[1], "file")) {
+	else if(strcmp(argv[1], "file") == 0) {
 		printf("Using file.\n");
-		if (use_fileops(argv[2], argv[3]) != 0)
-			exit(EXIT_FAILURE);
+		opmode = OP_MD_FILEOP;
 	}
 	else {
 		usage(argv[0]);
 		exit(EXIT_FAILURE);
 	}
 	
+	if (manage(opmode, argv[2], argv[3]) != 0)
+		exit(EXIT_FAILURE);
 
 	return 0;
 }
