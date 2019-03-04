@@ -43,5 +43,5 @@ void timeprofile_display(timeprofile_t *tp) {
     etime = (tp->op_copy[1].tv_sec * 1000000000) + tp->op_copy[1].tv_nsec;
     printf ("\n\nCopy Start time: %lld.%.9ld\n", (long long)(tp->op_copy[0].tv_sec), tp->op_copy[0].tv_nsec);
     printf ("Copy End   time: %lld.%.9ld\n", (long long)(tp->op_copy[1].tv_sec), tp->op_copy[1].tv_nsec);
-    printf ("Copy Time      : .%.9ld\n", etime - stime);
+    printf ("Copy Time      : %.9ld\n", etime - stime);
 }
